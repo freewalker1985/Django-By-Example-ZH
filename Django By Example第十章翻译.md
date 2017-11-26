@@ -1335,7 +1335,7 @@ def post(self, request, module_id, model_name, id=None):
         obj.save()
         if not id:
             # new content
-            Content.objects.create(module=self.module,
+            Content.objects.create(module=self.module, item=obj)
         return redirect('module_content_list', self.module.id)
     return self.render_to_response({'form': form,
                                        'object': self.obj})
